@@ -62,7 +62,7 @@ async function signWithSigntool(fileName: string) {
         var command = `"${signtool}" sign /sm /t ${timestampUrl}`
         const sha1 : string= core.getInput('certificatesha1');
         if (sha1 != ''){
-            command = command + ` /sha1 "${sha1}"`
+            command = command + ` /sha1 "${sha1}" /fd sha256`
             vitalParameterIncluded = true; 
         }
         const name : string= core.getInput('certificatename');
